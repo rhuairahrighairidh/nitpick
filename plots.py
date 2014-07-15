@@ -111,15 +111,19 @@ def timeOrderedSDRPlot(activeColumns):
     #set up plot
     (figure,axes) = plt.subplots()
     #plot the actiive bits
-    axes.plot(xValues,yValues,'.')
+    axes.plot(xValues,yValues,'o')
     #display the horizontal grid
     axes.minorticks_on()
     axes.grid(True,axis='y',which='both',linestyle='solid',color=(0.7,0.7,0.7))
     #Set the horizontal gridlines to have spacing of 1
     axes.yaxis.set_minor_locator(matplotlib.ticker.MultipleLocator(1))
 
+    #Add a gap to the bottom and left edges so all points can be seen
+    axes.set_xlim(left=-1)
+    axes.set_ylim(bottom=-1)
+
     #set plot aspect ratio so the axes are even.
     axes.set_aspect(aspect='equal')
     #Make the plot bigger (the plot expands to box whilst retaining aspect ratio)
-    figure.set_size_inches(25,25)
+    figure.set_size_inches(15,15)
 
