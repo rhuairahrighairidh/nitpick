@@ -1,7 +1,7 @@
 import numpy
 import matplotlib.pyplot as plt
 import matplotlib
-
+import itertools
 
 
 
@@ -14,7 +14,6 @@ def differenceBarChart(activeColumns,dimensions):
     
     ##Transform the input before plotting (compute the differences between consecutive states)
     
-    import itertools
     #Example function from itertools documentation. Used for looping through a list in pairs
     def pairwise(iterable):
         "s -> (s0,s1), (s1,s2), (s2, s3), ..."
