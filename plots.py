@@ -113,7 +113,7 @@ def timeOrderedSDRPlot(activeColumns):
     #set up plot
     (figure,axes) = plt.subplots()
     #plot the actiive bits
-    axes.plot(xValues,yValues,'o')
+    axes.plot(xValues,yValues,'.')
     #display the horizontal grid
     axes.minorticks_on()
     axes.grid(True,axis='y',which='both',linestyle='solid',color=(0.7,0.7,0.7))
@@ -191,7 +191,7 @@ def densityOrderedSDRPlot(activeColumns):
     #set up plot
     (figure,axes) = plt.subplots()
     #plot the values
-    axes.plot(xValues,yValues,'o')
+    axes.plot(xValues,yValues,'.')
 
     #display the horizontal grid lines that go through each line of markers
     axes.minorticks_on()
