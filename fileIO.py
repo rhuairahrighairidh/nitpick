@@ -53,12 +53,50 @@ class History():
 
         
     #encoder stuff
+    def encoderInputs(self):
+        encoderInputs = {}
+        for encoderDetails in readJSON(self.paths.encoders()):
+            name = encoderDetails['name']
+            encoderInputs[name] = []
+            for iteration in xrange(1,self.getNumberOfIterations()+1):
+                encoderInputs[name].append(readJSON(self.paths.encoderInput(name, iteration)))
+        return encoderInputs
+        
+    def encoderOutputs(self):
+        encoderOutputs = {}
+        for encoderDetails in readJSON(self.paths.encoders()):
+            name = encoderDetails['name']
+            encoderOutputs[name] = []
+            for iteration in xrange(1,self.getNumberOfIterations()+1):
+                encoderOutputs[name].append(readJSON(self.paths.encoderOutput(name, iteration)))
+        return encoderOutputs
+        
+    def encoderNeighbors(self):
+        encoderNeighbors = {}
+        for encoderDetails in readJSON(self.paths.encoders()):
+            name = encoderDetails['name']
+            encoderNeighbors[name] = []
+            for iteration in xrange(1,self.getNumberOfIterations()+1):
+                encoderNeighbors[name].append(readJSON(self.paths.coordinateEncoderNeighbors(name, iteration)))
+        return encoderNeighbors
+
+    def encoderTopWCoordinates(self):
+        encoderTopWCoordinates = {}
+        for encoderDetails in readJSON(self.paths.encoders()):
+            name = encoderDetails['name']
+            encoderTopWCoordinates[name] = []
+            for iteration in xrange(1,self.getNumberOfIterations()+1):
+                encoderTopWCoordinates[name].append(readJSON(self.paths.coordinateEncoderTopWCoordinates(name, iteration)))
+        return encoderTopWCoordinates
+
+
 
 def readJSON(filepath):
   with open(filepath, 'r') as infile:
     return json.load(infile)
 
 ##model state saving
+#TODO This will attach a History object that loads data from the default location only
 
 from cerebro2.patcher import Patcher
 
@@ -68,3 +106,13 @@ def modifiedPatchSP(*args, **kwargs):
     args[1].history = History()
     return result
 Patcher.patchSP = modifiedPatchSP
+
+
+originalPatchTP = Patcher.patchTP
+def modifiedPatchTP(*args, **kwargs):
+    result = originalPatchTP(*args, **kwargs)
+    args[1].history = History()
+    return result
+Patcher.patchTP = modifiedPatchTP
+
+#TODO Attach history objects to patched encoders and 'CLAModels'
