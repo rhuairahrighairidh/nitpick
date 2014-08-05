@@ -1,10 +1,8 @@
-#Season of NuPIC
-
-A repository to hold project files for my season of nupic project.
+#nitpick - A visualisation library for NuPIC
 
 All notebooks can be viewed using IPython's nb viewer website here:  http://nbviewer.ipython.org/github/rhuairahrighairidh/SoN/tree/master/
 
-Demo of use: [demo notebook](http://nbviewer.ipython.org/github/rhuairahrighairidh/SoN/blob/master/SoN/documentation/demo.ipynb)
+Demo of use: [demo notebook](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/demo.ipynb)
 
 
 ##Installation Instructions
@@ -13,11 +11,11 @@ This library can be fully installed using the standard python package manager ``
 
 To install run the following:
 
-    pip install https://github.com/rhuairahrighairidh/SoN/archive/master.zip
+    pip install https://github.com/rhuairahrighairidh/nitpick/archive/master.zip
 
 To uninstall run:
 
-    pip uninstall  SoN
+    pip uninstall  nitpick
 
 This library is designed to be used with IPython. It doesn't require IPython to be installed but if you want to install ipython run:
 
