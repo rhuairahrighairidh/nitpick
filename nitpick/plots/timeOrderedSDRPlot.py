@@ -52,4 +52,6 @@ def timeOrderedSDRPlot(activeColumns):
     axes.set_aspect(aspect='equal')
     #Make the plot bigger (the plot expands to box whilst retaining aspect ratio)
     figure.set_size_inches(15,15)
+    
+    return (figure,axes)
 
