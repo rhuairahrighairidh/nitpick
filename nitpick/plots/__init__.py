@@ -8,3 +8,5 @@
 from densityOrderedSDRPlot import densityOrderedSDRPlot
 from timeOrderedSDRPlot import timeOrderedSDRPlot
 from differenceBarChart import differenceBarChart
+from arrayPlot import arrayPlot
+from sparseArrayPlot import sparseArrayPlot
