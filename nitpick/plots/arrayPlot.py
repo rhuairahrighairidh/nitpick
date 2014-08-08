@@ -28,7 +28,7 @@ def arrayPlot(array, reshape=False):
     (figure,axes) = plt.subplots()
     
     #plot the array
-    cAxes = axes.matshow(array,cmap='binary')
+    cAxes = axes.matshow(array,cmap='binary',interpolation='none')
     
     #add a colorbar next to the array plot
     figure.colorbar(cAxes)
