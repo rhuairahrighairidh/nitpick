@@ -7,7 +7,8 @@ def sparseArrayPlot(indexes, dimensions, reshape=False):
     denseArray[indexes]=1
     denseArray = numpy.reshape(denseArray,dimensions)
     
-    print denseArray
     #plot the dense array
-    arrayPlot(denseArray,reshape=reshape)
+    plotReturn = arrayPlot(denseArray,reshape=reshape)
+
+    return plotReturn
     

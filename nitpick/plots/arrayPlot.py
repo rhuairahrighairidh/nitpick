@@ -41,3 +41,5 @@ def arrayPlot(array, reshape=False):
     axes.yaxis.set_minor_locator(locy)
        
     axes.grid(True,axis='both',which='minor',linestyle='solid',color=(0.7,0.7,0.7))
+
+    return figure
