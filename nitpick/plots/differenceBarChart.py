@@ -67,6 +67,6 @@ def differenceBarChart(activeColumns,dimensions):
     percentageAxis.set_aspect(barScreenAspectRatio/percentageAxis.get_ylim()[1], adjustable='box-forced')
     percentageAxis.set_ylabel("%")
     
-    return figure #Not sure if this is the correct thing to return for matplotlib plots
+    return (figure, figure.axes)
 
 

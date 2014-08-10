@@ -8,9 +8,9 @@ def arrayPlot(array, reshape=False):
     """
     Plot an array with each item shown in grey.
     reshape specifies that the array should be reshaped to be as close to the target as possible whilst keeping to integer dimensions.
-    reshape = True -> reshape the array to the golden Ratio
-    reshape = 1.2 -> reshape the array to 1.2
-    reshape = [20,30] -> reshape the array to 30/20 = 3/2 = 1.5
+    reshape = True -> try and reshape the array to the golden Ratio
+    reshape = 1.2 -> try and reshape the array to 1.2
+    reshape = [20,30] -> try and reshape the array to 30/20 = 3/2 = 1.5
     """
 
     array = numpy.asarray(array)
@@ -44,4 +44,5 @@ def arrayPlot(array, reshape=False):
     #Turn off major gridlines to stop them interfering
     axes.grid(False,axis='both',which='major')
 
-    return figure
+    return (figure, figure.axes)
+    

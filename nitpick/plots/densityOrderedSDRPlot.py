@@ -79,5 +79,5 @@ def densityOrderedSDRPlot(activeColumns):
     axes.set_aspect(aspect='equal')
     figure.set_size_inches(15,15)
 
-    return figure
+    return (figure, figure.axes)
 
