@@ -1,6 +1,7 @@
 import numpy
 import matplotlib.pyplot as plt
 import matplotlib.ticker
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 from tools import getClosestFactorPair
 
@@ -12,9 +13,13 @@ def arrayPlot(array, reshape=False):
     reshape = 1.2 -> try and reshape the array to 1.2
     reshape = [20,30] -> try and reshape the array to 30/20 = 3/2 = 1.5
     """
-
-    array = numpy.asarray(array)
     
+    #make the array 2D if it is 1D so that matshow can plot it
+    array = numpy.asarray(array)
+    if len(array.shape)==1:
+        array = numpy.asarray([array])
+    
+    #reshape the array if required
     if reshape != False:
         if reshape is True:
             targetRatio = 1.618 #if no shape specified, try and reshape to the golden ratio
@@ -28,10 +33,13 @@ def arrayPlot(array, reshape=False):
     (figure,axes) = plt.subplots()
     
     #plot the array
-    cAxes = axes.matshow(array,cmap='binary',interpolation='none')
+    imageAxes = axes.matshow(array,cmap='binary',interpolation='none')
     
-    #add a colorbar next to the array plot
-    figure.colorbar(cAxes)
+    #add a colorbar next to the array plot (this appends a new axes next to the matshow one)
+    divider = make_axes_locatable(axes)
+    cAxes = divider.append_axes("right", size=0.15, pad=0.15)
+
+    plt.colorbar(imageAxes, cax=cAxes)
     
     #draw gridlines between each array value
     locx = matplotlib.ticker.IndexLocator(1,0)
