@@ -96,14 +96,14 @@ def readJSON(filepath):
     return json.load(infile)
 
 ##model state saving
-#TODO This will attach a History object that loads data from the default location only
-
+#Patching the patcher - the patcher code is in a kind of demo state just now, hence the strange structure.
 from cerebro2.patcher import Patcher
 
 originalPatchSP = Patcher.patchSP
 def modifiedPatchSP(*args, **kwargs):
     result = originalPatchSP(*args, **kwargs)
-    args[1].history = History()
+    dataDir=args[0].paths.dataDir #args[0] should be self, ie the Patcher Object
+    args[1].history = History(dataDir=dataDir)
     return result
 Patcher.patchSP = modifiedPatchSP
 
@@ -111,8 +111,18 @@ Patcher.patchSP = modifiedPatchSP
 originalPatchTP = Patcher.patchTP
 def modifiedPatchTP(*args, **kwargs):
     result = originalPatchTP(*args, **kwargs)
-    args[1].history = History()
+    dataDir=args[0].paths.dataDir #args[0] should be self, ie the Patcher Object
+    args[1].history = History(dataDir=dataDir)
     return result
 Patcher.patchTP = modifiedPatchTP
 
-#TODO Attach history objects to patched encoders and 'CLAModels'
+
+originalPatchCLAModel = Patcher.patchCLAModel
+def modifiedPatchCLAModel(*args, **kwargs):
+    result = originalPatchCLAModel(*args, **kwargs)
+    dataDir=args[0].paths.dataDir #args[0] should be self, ie the Patcher Object
+    args[1].history = History(dataDir=dataDir) #args[1] is the model object
+    return result
+Patcher.patchCLAModel = modifiedPatchCLAModel
+
+#TODO Attach history objects to patched encoders?
