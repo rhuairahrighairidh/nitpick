@@ -1,11 +1,12 @@
 import numpy
 import matplotlib.pyplot as plt
 import matplotlib
+import operator
+from functools import reduce
 
-def differenceBarChart(activeColumns,dimensions):
+def differenceBarChart(activeColumns,arraySize=None):
     #Make sure inputs are numpy arrays
     activeColumns = numpy.asarray(activeColumns)
-    dimensions = numpy.asarray(dimensions)
     
     
     ##Transform the input before plotting (compute the differences between consecutive states)
@@ -59,13 +60,20 @@ def differenceBarChart(activeColumns,dimensions):
     
     
     #Set up another axis to show percentage
-    def convertToPercentage(numberOfColumns,totalNumberOfColumns=dimensions[0]*dimensions[1]):
-        return 100*float(numberOfColumns)/float(totalNumberOfColumns)
-    
-    percentageAxis = axes.twinx()
-    percentageAxis.set_ylim(bottom=convertToPercentage(axes.get_ylim()[0]),top=convertToPercentage(axes.get_ylim()[1]))
-    percentageAxis.set_aspect(barScreenAspectRatio/percentageAxis.get_ylim()[1], adjustable='box-forced')
-    percentageAxis.set_ylabel("%")
+    if arraySize != None:
+        try:
+            arraySize = float(arraySize) #converting to int might produce unexpected behaviour if you input a float
+        except:
+            #assumes arraySize is a list of dimensions
+            arraySize = reduce(operator.mul, arraySize, 1)
+            
+        def convertToPercentage(numberOfColumns,totalNumberOfColumns=arraySize):
+            return 100*float(numberOfColumns)/float(totalNumberOfColumns)
+        
+        percentageAxis = axes.twinx()
+        percentageAxis.set_ylim(bottom=convertToPercentage(axes.get_ylim()[0]),top=convertToPercentage(axes.get_ylim()[1]))
+        percentageAxis.set_aspect(barScreenAspectRatio/percentageAxis.get_ylim()[1], adjustable='box-forced')
+        percentageAxis.set_ylabel("%")
     
     return (figure, figure.axes)
 
