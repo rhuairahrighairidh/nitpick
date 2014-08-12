@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 def permanenceEvolutionPlot(allPermanences,activeColumn):
     """
-    Danger Function - untill this is fixed make sure you have enough swap space
+    Danger Function - until this is fixed make sure you have enough swap space
     """
     #Get a set of all the synapse indexes in the form (to, from)
     allIndexes=set([tuple(i[:2]) for i in flatten(allPermanences,level=1)])
