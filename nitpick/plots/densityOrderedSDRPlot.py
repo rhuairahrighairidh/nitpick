@@ -1,6 +1,7 @@
 import numpy
 import matplotlib.pyplot as plt
 import matplotlib
+from tools import flatten
 
 def densityOrderedSDRPlot(activeColumns):
     #Make sure inputs are numpy arrays
@@ -9,18 +10,18 @@ def densityOrderedSDRPlot(activeColumns):
     
     ##Transform the input values into x and y coordinates
     
-    #Calculate x values -FIX THIS - it won't work if the number of active columns varies with time
     #for each active bit, the x value is the time when it was active
-    xValues = numpy.array([range(activeColumns.shape[0])])
-    xValues = numpy.repeat(xValues.T,activeColumns.shape[1],axis=1)
-    xValues = xValues.flatten()
+    xValues = []
+    for t in xrange(len(activeColumns)):
+        xValues.append([t]*len(activeColumns[t]))
+    xValues = numpy.fromiter(flatten(xValues),int) #not sure if int is the right thing to use here
 
     #Calculate y values 
     #for each active bit the y value is the number of times that bit is active over the whole time range
     from collections import Counter
     from operator import itemgetter
 
-    inputIndexes = activeColumns.flatten()
+    inputIndexes = list(flatten(activeColumns))
 
     #get a list of tuples - [(columnIndex,count),(columnIndex, count),...]
     c=Counter(inputIndexes).items()
@@ -41,7 +42,7 @@ def densityOrderedSDRPlot(activeColumns):
     
     
     #Calculate horizontal grid lines
-    
+    #Each number next to a horizontal gridline shows the number of activations in the band above
     #split up plot into bands of the same activation count ie group the 'columns' by activation count
     yTickPositions = []
     lastValue = None
@@ -50,7 +51,7 @@ def densityOrderedSDRPlot(activeColumns):
         if currentValue != lastValue:
             yTickPositions.append(i)
         lastValue = currentValue
-    yTickPositions = numpy.asarray(yTickPositions) + 0.5 #the y ticks should divide the columns into groups, so they go between line, hence the 0.5
+    yTickPositions = numpy.asarray(yTickPositions) - 0.5 #the y ticks should divide the columns into groups, so they go between line, hence the 0.5
     
     
     

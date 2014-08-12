@@ -1,6 +1,7 @@
 import numpy
 import matplotlib.pyplot as plt
 import matplotlib
+from tools import flatten
 
 def timeOrderedSDRPlot(activeColumns):
     #Make sure inputs are numpy arrays
@@ -9,11 +10,12 @@ def timeOrderedSDRPlot(activeColumns):
     
     ##Transform the input values into x and y coordinates
     
-    #Calculate x values -FIX THIS - it won't work if the number of active columns varies with time
     #for each active bit, the x value is the time when it was active
-    xValues = numpy.array([range(activeColumns.shape[0])])
-    xValues = numpy.repeat(xValues.T,activeColumns.shape[1],axis=1)
-    xValues = xValues.flatten()
+    xValues = []
+    for t in xrange(len(activeColumns)):
+        xValues.append([t]*len(activeColumns[t]))
+    xValues = numpy.fromiter(flatten(xValues),int) #not sure if int is the right thing to use here
+    
 
     #Calculate y values 
     #for each active bit the y value is the time when that bit was first active
@@ -21,7 +23,7 @@ def timeOrderedSDRPlot(activeColumns):
 
         pastIndexes = []
         yValues = []
-        for activeColumn in activeColumns.flatten():
+        for activeColumn in flatten(activeColumns):
             if activeColumn not in pastIndexes:
                 pastIndexes.append(activeColumn)
             yValue = pastIndexes.index(activeColumn)
@@ -30,7 +32,6 @@ def timeOrderedSDRPlot(activeColumns):
         return yValues
 
     yValues = numpy.asarray(transformActiveColumnIndexes(activeColumns))
-    
     
     ##Plot the x and y coordinates
     
