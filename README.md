@@ -1,8 +1,12 @@
 #nitpick - A visualisation library for NuPIC
 
-All notebooks can be viewed using IPython's nb viewer website here:  http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/tree/master/
+A library of plots and automatic model state saving (courtesy of [Cerebro2](https://github.com/numenta/nupic.cerebro2)) designed to make it easy to visualize what is going on inside a HTM model.
 
-Demo of use: [demo notebook](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/demo.ipynb)
+This project is part of the 2014 Season of NuPIC.
+
+For an idea of what this can do see the [HotGymDemo](https://github.com/rhuairahrighairidh/nitpick/tree/master/development/HotGymDemo.ipynb)
+
+All other notebooks can be viewed using IPython's nb viewer website here:  http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/tree/master/
 
 
 ##Installation Instructions
