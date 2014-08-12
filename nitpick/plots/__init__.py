@@ -1,5 +1,5 @@
-#import all the plotting functions so that they are immediately accessible from the terminal
-#for example
+#Import all the plotting functions so that they are immediately accessible from the terminal.
+#For example:
 #>>> import plots
 #>>> plots.differenceBarChart(someData)
 
@@ -10,3 +10,5 @@ from timeOrderedSDRPlot import timeOrderedSDRPlot
 from differenceBarChart import differenceBarChart
 from arrayPlot import arrayPlot
 from sparseArrayPlot import sparseArrayPlot
+from permanencePlot import permanencePlot
+from permanenceEvolutionPlot import permanenceEvolutionPlot

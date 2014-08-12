@@ -32,3 +32,20 @@ def getClosestFactorPair(inputNumber,targetRatio):
     closestPair = min(pairs, key=lambda x:abs((float(x[1])/float(x[0]))-targetRatio))
     
     return closestPair
+    
+#Supreme flattening generator from stack overflow
+from collections import Iterable
+def flatten(l,level = -1):
+    """
+    This generator flattens whatever youi throw at it. With an optional argument to only flatten down to a particular level.
+    level = -1 flattens everything
+    level = 0 doesn't flatten anything
+    level = 1 flattens one level
+    """
+    for el in l:
+        if isinstance(el, Iterable) and not isinstance(el, basestring) and not level==0:
+            for sub in flatten(el,level = level -1):
+                yield sub
+        else:
+            yield el
+            
