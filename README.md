@@ -4,7 +4,7 @@ A library of plots and automatic model state saving (courtesy of [Cerebro2](http
 
 This project is part of the 2014 Season of NuPIC.
 
-For an idea of what this can do see the [HotGymDemo](https://github.com/rhuairahrighairidh/nitpick/tree/master/development/HotGymDemo.ipynb)
+For an idea of what this can do (and to see some nice pictures) see the [HotGymDemo](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/development/HotGymDemo.ipynb)
 
 All other notebooks can be viewed using IPython's nb viewer website here:  http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/tree/master/
 
