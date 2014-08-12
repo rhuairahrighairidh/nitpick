@@ -1,6 +1,6 @@
 #nitpick - A visualisation library for NuPIC
 
-All notebooks can be viewed using IPython's nb viewer website here:  http://nbviewer.ipython.org/github/rhuairahrighairidh/SoN/tree/master/
+All notebooks can be viewed using IPython's nb viewer website here:  http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/tree/master/
 
 Demo of use: [demo notebook](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/demo.ipynb)
 
