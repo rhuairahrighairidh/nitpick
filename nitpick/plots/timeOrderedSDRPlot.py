@@ -42,6 +42,7 @@ def timeOrderedSDRPlot(activeColumns):
     #display the horizontal grid
     axes.minorticks_on()
     axes.grid(True,axis='y',which='both',linestyle='solid',color=(0.7,0.7,0.7))
+    axes.set_axisbelow(True) #draw the lines beneath the points
     #Set the horizontal gridlines to have spacing of 1
     axes.yaxis.set_minor_locator(matplotlib.ticker.MultipleLocator(1))
 

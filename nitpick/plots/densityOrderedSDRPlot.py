@@ -71,6 +71,9 @@ def densityOrderedSDRPlot(activeColumns):
     axes.grid(True,axis='y',which='major',linestyle='solid',color=(0.3,0.3,0.3))
     axes.set_yticks(yTickPositions)
     axes.set_yticklabels(numpy.unique([item[1] for item in sortedCounts])[::-1])
+    
+    #draw the drid lines beneath the points
+    axes.set_axisbelow(True)
 
     #Add a gap to the bottom and left edges so all points can be seen
     axes.set_xlim(left=-1)
