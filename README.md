@@ -1,4 +1,4 @@
-#nitpick - A visualisation library for NuPIC
+#nitpick - A visualisation library for [NuPIC](https://github.com/numenta/nupic)
 
 A library of plots and automatic model state saving (courtesy of [Cerebro2](https://github.com/numenta/nupic.cerebro2)) designed to make it easy to visualize what is going on inside a HTM model.
 
