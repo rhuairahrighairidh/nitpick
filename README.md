@@ -1,12 +1,20 @@
 #nitpick - A visualisation library for [NuPIC](https://github.com/numenta/nupic)
 
 A library of plots and automatic model state saving (courtesy of [Cerebro2](https://github.com/numenta/nupic.cerebro2)) designed to make it easy to visualize what is going on inside a HTM model.
+This library was designed to be straght forwards to use and easy to contribute to.
+
+For an idea of what this can do (and to see some nice pictures) see the [HotGymDemo](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/HotGymDemo.ipynb)
+
+Or to start using it, follow the installation instructions below then and have a look at
+ - the [Introduction Demo](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/IntroductionDemo.ipynb)
+ - and [the documentation](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/ContentsPage.ipynb)
+
+This project is still very much in the proof of concept phase so don't expect too much.  
+If you'd like to help out then then have a look at the [HowToAddANewPlot](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/HowToAddANewPlot.ipynb) guide.
+
+Note: all IPython notebook in this repo can be viewed using IPython's nb viewer website here:  http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/tree/master/
 
 This project is part of the 2014 Season of NuPIC.
-
-For an idea of what this can do (and to see some nice pictures) see the [HotGymDemo](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/development/HotGymDemo.ipynb)
-
-All other notebooks can be viewed using IPython's nb viewer website here:  http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/tree/master/
 
 
 ##Installation Instructions
@@ -19,9 +27,9 @@ To install run the following:
 
 To uninstall run:
 
-    pip uninstall  nitpick
+    pip uninstall nitpick
 
-This library is designed to be used with IPython. It doesn't require IPython to be installed but if you want to install ipython run:
+This library is designed to be used alongside IPython. It doesn't require IPython to be installed but if you want to install ipython run:
 
     pip install ipython[all]
     
@@ -37,5 +45,25 @@ If you install this in a virtualenv then it will install numpy and matplotlib as
     virtualenv myNewEnv --system-site-packages
 
 Now when a package is not found in the virtualenv, python will look in the system wide location as well.
+
+
+##Contributor Installation
+The above installation will work fine if you wan to use this library. But if you might contribute then follow these instructions:
+
+uninstall nitpick if its already installed
+
+    pip uninstall nitpick
+
+clone the repo
+
+    git clone https://github.com/rhuairahrighairidh/nitpick
+    
+use pip to install
+
+    pip install -e path/to/the/nitpick/repo
+
+This will install nitpick but point the installation at the files in the repo. So if you modify anything it doesn't need reinstalling
+
+Again you might want to do this inside a virtual env.
 
 
