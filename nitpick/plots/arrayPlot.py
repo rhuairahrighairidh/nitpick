@@ -5,7 +5,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 from tools import getClosestFactorPair
 
-def arrayPlot(array, reshape=False):
+def arrayPlot(array, reshape=False, grid=True):
     """
     Plot an array with each item shown in grey.
     reshape specifies that the array should be reshaped to be as close to the target as possible whilst keeping to integer dimensions.
@@ -41,16 +41,20 @@ def arrayPlot(array, reshape=False):
 
     plt.colorbar(imageAxes, cax=cAxes)
     
-    #draw gridlines between each array value
-    locx = matplotlib.ticker.IndexLocator(1,0)
-    locy = matplotlib.ticker.IndexLocator(1,0)
-       
-    axes.xaxis.set_minor_locator(locx)
-    axes.yaxis.set_minor_locator(locy)
-       
-    axes.grid(True,axis='both',which='minor',linestyle='solid',color=(0.7,0.7,0.7))
-    #Turn off major gridlines to stop them interfering
-    axes.grid(False,axis='both',which='major')
+    if grid:
+        #draw gridlines between each array value
+        locx = matplotlib.ticker.IndexLocator(1,0)
+        locy = matplotlib.ticker.IndexLocator(1,0)
+        
+        axes.xaxis.set_minor_locator(locx)
+        axes.yaxis.set_minor_locator(locy)
+           
+        axes.grid(True,axis='both',which='minor',linestyle='solid',color=(0.7,0.7,0.7))
+        #Turn off major gridlines to stop them interfering
+        axes.grid(False,axis='both',which='major')
+    
+    #Make the plot bigger
+    figure.set_size_inches([9,6])
 
     return (figure, figure.axes)
     

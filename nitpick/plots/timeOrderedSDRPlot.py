@@ -41,7 +41,7 @@ def timeOrderedSDRPlot(activeColumns):
     axes.plot(xValues,yValues,'.')
     #display the horizontal grid
     axes.minorticks_on()
-    axes.grid(True,axis='y',which='both',linestyle='solid',color=(0.7,0.7,0.7))
+    axes.grid(True,axis='both',which='both',linestyle='solid',color=(0.7,0.7,0.7))
     axes.set_axisbelow(True) #draw the lines beneath the points
     #Set the horizontal gridlines to have spacing of 1
     axes.yaxis.set_minor_locator(matplotlib.ticker.MultipleLocator(1))
@@ -53,7 +53,7 @@ def timeOrderedSDRPlot(activeColumns):
     #set plot aspect ratio so the axes are even.
     axes.set_aspect(aspect='equal')
     #Make the plot bigger (the plot expands to box whilst retaining aspect ratio)
-    figure.set_size_inches(15,15)
+    figure.set_size_inches(20,20)
     
     return (figure, figure.axes)
 

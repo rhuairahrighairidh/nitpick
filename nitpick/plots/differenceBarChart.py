@@ -56,7 +56,7 @@ def differenceBarChart(activeColumns,arraySize=None):
     barScreenAspectRatio=15
     axes.set_aspect(barScreenAspectRatio/axes.get_ylim()[1], adjustable='box-forced')
     #make the plot bigger
-    figure.set_size_inches(15,10) #plot keeps aspect ratio from above and expands to fill this box
+    figure.set_size_inches(20,20) #plot keeps aspect ratio from above and expands to fill this box
     
     
     #Set up another axis to show percentage

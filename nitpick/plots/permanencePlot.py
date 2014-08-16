@@ -1,7 +1,7 @@
 import numpy
 from arrayPlot import arrayPlot
 
-def permanencePlot(permanences,numOfSources,numOfEndPoints):
+def permanencePlot(permanences,numOfSources,numOfEndPoints, grid=True):
     """
     permanences -> [[synapseStart(ie column), synapseEnd(ie input bit), permanence],[45,162,0.230001], ... ]
     numOfSources -> e.g. number of columns in a SP
@@ -15,7 +15,7 @@ def permanencePlot(permanences,numOfSources,numOfEndPoints):
         adjMatrix[synapse[0],synapse[1]]=synapse[2]
         
     #plot the matrix using arrayPlot
-    returnValues = arrayPlot(adjMatrix)
+    returnValues = arrayPlot(adjMatrix,grid=grid)
     #make it big
     returnValues[0].set_size_inches(20,20)
     
