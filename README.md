@@ -9,7 +9,7 @@ Or to start using it, follow the installation instructions below then and have a
  - the [Introduction Demo](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/IntroductionDemo.ipynb)
  - and [the documentation](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/ContentsPage.ipynb)
 
-This project is still very much in the proof of concept phase so don't expect too much.  
+This project is still very much in the proof of concept phase.  
 If you'd like to help out then then have a look at the [HowToAddANewPlot](http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/blob/master/nitpick/documentation/HowToAddANewPlot.ipynb) guide.
 
 Note: all IPython notebook in this repo can be viewed using IPython's nb viewer website here:  http://nbviewer.ipython.org/github/rhuairahrighairidh/nitpick/tree/master/
@@ -48,7 +48,7 @@ Now when a package is not found in the virtualenv, python will look in the syste
 
 
 ##Contributor Installation
-The above installation will work fine if you wan to use this library. But if you might contribute then follow these instructions:
+The above installation will work fine if you want to use this library. But if you might contribute then follow these instructions:
 
 uninstall nitpick if its already installed
 
@@ -60,7 +60,7 @@ clone the repo
     
 use pip to install
 
-    pip install -e path/to/the/nitpick/repo
+    pip install -e path/to/the/cloned/nitpick/repo
 
 This will install nitpick but point the installation at the files in the repo. So if you modify anything it doesn't need reinstalling
 
